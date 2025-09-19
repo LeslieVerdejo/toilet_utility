@@ -1,0 +1,20 @@
+.buscador {
+  max-width: 350px;
+}
+
+.buscador-label {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.table-container {
+  background-color: #ffffff;
+  height: 100vh;
+  max-height: 500px;
+}
+
+.table-sm td,
+.table-sm th {
+  padding: 0.4rem;
+  font-size: 0.85rem;
+}
