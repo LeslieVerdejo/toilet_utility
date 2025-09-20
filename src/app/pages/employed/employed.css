@@ -1,20 +1,69 @@
 .buscador {
-  max-width: 350px;
+  max-width: 300px; /* antes 400px */
+  border-radius: 3px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* sombra más sutil */
 }
 
 .buscador-label {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.75rem; /* antes 0.85rem */
+  color: #333;
+}
+
+.boton-buscar {
+  background-color: #007bff;
+  border: none;
+  padding: 0.25rem 0.5rem; /* más compacto */
+  font-size: 0.75rem;
+}
+
+.agregar-btn {
+  background-color: #28a745;
+  border: none;
+  padding: 0.25rem 0.5rem; /* más compacto */
+  font-size: 0.75rem;
+  transition: background-color 0.2s;
+}
+
+.agregar-btn:hover {
+  background-color: #218838;
 }
 
 .table-container {
-  background-color: #ffffff;
-  height: 100vh;
-  max-height: 500px;
+  background-color: #f9f9f9;
+  height: auto;
+  max-height: 950px; /* antes 450px */
+  overflow-y: auto;
+  border-radius: 8px;
 }
 
 .table-sm td,
 .table-sm th {
-  padding: 0.4rem;
-  font-size: 0.85rem;
+  padding: 0.35rem 0.5rem; /* antes 0.5rem 0.75rem */
+  font-size: 0.85rem; /* antes 0.65rem */
+}
+
+.table-hover tbody tr:hover {
+  background-color: #e9ecef;
+}
+
+.table-dark {
+  background-color: #343a40 !important;
+  color: #fff;
+  border-radius: 8px 8px 0 0;
+}
+
+.front-nav {
+  height: 20px;
+}
+
+.pagination-controls {
+  font-size: 0.65rem;
+  margin-top: 0.25rem !important;
+}
+
+.pagination-controls .pagination li a,
+.pagination-controls .pagination li span {
+  padding: 0.2rem 0.35rem;
 }

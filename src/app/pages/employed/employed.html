@@ -1,73 +1,71 @@
-<div class="container mt-2">
-  <div class="d-flex justify-content-between align-items-center mb-1">
-    <div class="d-flex align-items-center buscador">
-      <label for="buscadorInput" class="me-2 buscador-label fw-bold">Buscar:</label>
-      <div class="input-group input-group-sm">
-        <input
-          id="buscadorInput"
-          type="text"
-          class="form-control"
-          placeholder="Buscar trabajador..."
-        />
-        <button class="btn btn-primary boton-buscar" type="button">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </button>
-      </div>
+<div class="front-nav d-flex justify-content-between align-items-center mb-1 flex-wrap">
+  <div class="d-flex align-items-center buscador mb-2">
+    <label for="buscadorInput" class="me-2 buscador-label fw-bold">Buscar:</label>
+    <div class="input-group input-group-sm">
+      <input
+        #termino
+        id="buscadorInput"
+        type="text"
+        class="form-control"
+        placeholder="Buscar trabajador..."
+      />
+      <button (click)="buscar(termino.value)" class="btn btn-primary boton-buscar" type="button">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </button>
     </div>
-
-    <button class="btn btn-primary btn-sm">
-      <i class="fa-solid fa-user-plus me-1"></i> Agregar trabajador
-    </button>
   </div>
 
-  <div class="table-container p-3 rounded shadow-sm">
-    <div class="table-responsive">
-      <table class="table table-hover table-sm align-middle mb-0">
-        <thead class="table-dark">
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Rut</th>
-            <th scope="col">Nombres</th>
-            <th scope="col">Apellidos</th>
-            <th scope="col">Cargo</th>
-            <th scope="col">Teléfono</th>
-            <th scope="col" class="text-center">Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            *ngFor="
-              let emp of empleados | paginate: { itemsPerPage: 10, currentPage: page };
-              let i = index
-            "
-          >
-            <th scope="row">{{ (page - 1) * 10 + i + 1 }}</th>
+  <button class="btn btn-primary btn-sm agregar-btn mb-2">
+    <i class="fa-solid fa-user-plus me-1"></i> Agregar trabajador
+  </button>
+</div>
 
-            <td>{{ emp.rut }}</td>
-            <td>{{ emp.nombres }}</td>
-            <td>{{ emp.apellidos }}</td>
-            <td>{{ emp.cargo }}</td>
-            <td>{{ emp.telefono }}</td>
-            <td class="text-center">
-              <button class="btn btn-sm btn-outline-warning me-1" title="Editar">
-                <i class="fa-solid fa-user-pen"></i>
-              </button>
-              <button class="btn btn-sm btn-outline-danger" title="Eliminar">
-                <i class="fa-solid fa-trash"></i>
-              </button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <!-- Paginador -->
-      <!-- Paginador -->
-      <pagination-controls
-        (pageChange)="page = $event"
-        previousLabel="Anterior"
-        nextLabel="Siguiente"
-        class="d-flex justify-content-center mt-3"
-      >
-      </pagination-controls>
-    </div>
+<div class="table-container p-3 rounded shadow-sm">
+  <div class="table-responsive">
+    <table class="table table-hover table-sm align-middle mb-0">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Rut</th>
+          <th scope="col">Nombres</th>
+          <th scope="col">Apellidos</th>
+          <th scope="col">Cargo</th>
+          <th scope="col">Teléfono</th>
+          <th scope="col" class="text-center">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let emp of empleadosFiltrados | paginate: { itemsPerPage: 10, currentPage: page };
+            let i = index
+          "
+        >
+          <th scope="row">{{ (page - 1) * 10 + i + 1 }}</th>
+          <td>{{ emp.rut }}</td>
+          <td>{{ emp.nombres }}</td>
+          <td>{{ emp.apellidos }}</td>
+          <td>{{ emp.cargo }}</td>
+          <td>{{ emp.telefono }}</td>
+          <td class="text-center">
+            <button class="btn btn-sm btn-outline-success me-1">
+              <i class="fa-solid fa-eye"></i>
+            </button>
+            <button class="btn btn-sm btn-outline-warning me-1">
+              <i class="fa-solid fa-user-pen"></i>
+            </button>
+            <button class="btn btn-sm btn-outline-danger"><i class="fa-solid fa-trash"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <pagination-controls
+      (pageChange)="page = $event"
+      previousLabel="Anterior"
+      nextLabel="Siguiente"
+      class="d-flex justify-content-center mt-3"
+    >
+    </pagination-controls>
   </div>
 </div>

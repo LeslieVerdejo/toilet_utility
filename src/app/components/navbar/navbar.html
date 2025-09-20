@@ -1,1 +1,71 @@
-<p>navbar works!</p>
+<nav
+  class="navbar navbar-expand-lg navbar-light bg-light px-4 shadow-sm"
+  style="margin-left: 220px; z-index: 1020"
+>
+  <a class="navbar-brand fw-bold text-primary d-flex align-items-center" routerLink="/">
+    CleanAdmin
+    <span class="ms-2">{{ nombre }}</span>
+  </a>
+
+  <div class="ms-auto d-flex align-items-center">
+    <button class="btn btn-outline-primary btn-sm me-3" id="themeToggle">
+      <i class="fa-solid fa-sun me-1"></i> Tema
+    </button>
+
+    <button class="btn btn-outline-secondary btn-sm me-2 position-relative">
+      <i class="fa-solid fa-bell"></i>
+      <span
+        class="badge bg-danger position-absolute top-0 start-100 translate-middle p-1 rounded-circle"
+      ></span>
+    </button>
+
+    <button class="btn btn-outline-secondary btn-sm me-2 position-relative">
+      <i class="fa-solid fa-envelope"></i>
+      <span
+        class="badge bg-danger position-absolute top-0 start-100 translate-middle p-1 rounded-circle"
+      ></span>
+    </button>
+
+    <button class="btn btn-outline-secondary btn-sm me-4 position-relative">
+      <i class="fa-solid fa-clipboard-list"></i>
+      <span
+        class="badge bg-warning position-absolute top-0 start-100 translate-middle p-1 rounded-circle"
+      ></span>
+    </button>
+
+    <div class="dropdown">
+      <button
+        class="btn btn-outline-primary dropdown-toggle d-flex align-items-center"
+        type="button"
+        id="userMenu"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <i class="fa-solid fa-user-circle me-2 fs-5"></i> Admin
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="userMenu">
+        <li>
+          <a class="dropdown-item" routerLink="/perfil"
+            ><i class="fa-solid fa-id-card me-2"></i> Perfil</a
+          >
+        </li>
+        <li>
+          <a class="dropdown-item" routerLink="/notificaciones"
+            ><i class="fa-solid fa-bell me-2"></i> Notificaciones</a
+          >
+        </li>
+        <li>
+          <a class="dropdown-item" routerLink="/tareas"
+            ><i class="fa-solid fa-clipboard-list me-2"></i> Tareas pendientes</a
+          >
+        </li>
+        <li><hr class="dropdown-divider" /></li>
+        <li>
+          <a class="dropdown-item text-danger" href="#"
+            ><i class="fa-solid fa-right-from-bracket me-2"></i> Cerrar sesión</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
